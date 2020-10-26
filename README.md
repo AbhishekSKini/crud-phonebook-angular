@@ -10,4 +10,4 @@ This will shows it in browser using the link mentioned there itself
 4.Then in another terminal go to the server folders and type- npm i -g json-server
 
 5.Then type json-server --watch db.json
-6.Then you will get a link  http://localhost:3000/users) where you can check the json data .
+6.Then you will get a link  http://localhost:3000/users) where you can check the json data .After any changes you have to reload the page to reflect the changes on json file.
