@@ -30,11 +30,11 @@
     </div>
     <!--(click)="addUser(myform.value)"-->
     
-    <button type="submit" class="btn btn-primary"  *ngIf="!IsEdit" onClick="window.location.reload();">Submit </button>
-    <button type="submit" class="btn btn-primary" *ngIf="IsEdit" (click)="updateUser()" onClick="window.location.reload();">Update</button>
+    <button type="submit" class="btn btn-primary"  *ngIf="!IsEdit" >Submit </button>
+    <button type="submit" class="btn btn-primary" *ngIf="IsEdit" (click)="updateUser()">Update</button>
     <br>
     <br>
-    <!--<button class="btn btn-primary" onClick="window.location.reload();">Add</button>-->
+    
   </form>
 <br>
 <!--table-->
