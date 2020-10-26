@@ -7,7 +7,7 @@
 3.Go to the  directory of the file saved in the terminal and type- ng serve
 This will shows it in browser using the link mentioned there itself
 
-5.Then in another terminal go to the server folders and type- npm i -g json-server
+4.Then in another terminal go to the server folders and type- npm i -g json-server
 
-6.Then type json-server --watch db.json
-7.Then you will get a link  http://localhost:3000/users) where you can check the json data .
+5.Then type json-server --watch db.json
+6.Then you will get a link  http://localhost:3000/users) where you can check the json data .
