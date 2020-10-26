@@ -1,0 +1,67 @@
+
+<h1>PHONEBOOK</h1>
+<div class="container">
+  <form #myform="ngForm"  (ngSubmit)="myform.form.valid && addUser(myform.value)" > 
+    <div class="form-group">
+      <label for="exampleInputEmail1">Name</label>
+      <input type="name" class="form-control" name="name" aria-describedby="emailHelp" [(ngModel)]="userobj.name" required #name="ngModel" pattern="[a-zA-Z][a-zA-Z ]{2,}">
+      <span *ngIf="myform.submitted && name.errors?.required">Please enter you Name</span>
+      <span *ngIf="myform.submitted && name.errors?.pattern">Please enter valid Name</span>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Mobile Number</label>
+      <input type="name" class="form-control" name="mobile"aria-describedby="emailHelp"  [(ngModel)]="userobj.mobile" required #mob="ngModel" pattern="(0/91)?[7-9][0-9]{9}">
+      <span *ngIf="myform.submitted && mob.errors?.required">Please enter you mobile number</span>
+      <span *ngIf="myform.submitted && mob.errors?.pattern">Please enter valid mobile number</span>   
+    </div>
+   
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input type="email" class="form-control" name="email" aria-describedby="emailHelp"  [(ngModel)]="userobj.email" required #email="ngModel" pattern="[^@\s]+@[^@\s]+\.[^@\s]+">
+      <span *ngIf="myform.submitted && email.errors?.required">Please enter you email</span>
+      <span *ngIf="myform.submitted && email.errors?.pattern">Please enter valid email</span>
+      
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input type="password" class="form-control" name="password" [(ngModel)]="userobj.password" #pass="ngModel" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+      <span *ngIf="myform.submitted && pass.errors?.required">Please enter you password</span>
+      <span *ngIf="myform.submitted && pass.errors?.pattern">Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters</span>
+    </div>
+    <!--(click)="addUser(myform.value)"-->
+    
+    <button type="submit" class="btn btn-primary"  *ngIf="!IsEdit" onClick="window.location.reload();">Submit </button>
+    <button type="submit" class="btn btn-primary" *ngIf="IsEdit" (click)="updateUser()" onClick="window.location.reload();">Update</button>
+    <br>
+    <br>
+    <!--<button class="btn btn-primary" onClick="window.location.reload();">Add</button>-->
+  </form>
+<br>
+<!--table-->
+
+<table class="table">
+  <thead>
+    <tr>
+      
+      <th scope="col">Name</th>
+      <th scope="col">Number</th>
+      <th scope="col">Email</th>
+      <th scope="col">Password</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of allUser">
+      <td>{{user.name}}</td>
+      <td>{{user.mobile}}</td>
+      <td>{{user.email}}</td>
+      <td>{{user.password}}</td>
+      <td><button class="btn btn-warning"  (click)="editUser(user)" >EDIT</button></td>
+      <td><button class="btn btn-danger"  (click)="deleteUser(user)" >DELETE</button></td>
+    </tr>
+
+  </tbody>
+</table>
+</div>
